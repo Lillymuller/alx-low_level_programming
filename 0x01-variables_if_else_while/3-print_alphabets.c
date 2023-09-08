@@ -5,10 +5,16 @@
 */
 int main(void)
 {
-	for (char c = 'a' ; c <= 'z' ; c++)
-	{
-		putchar(c);
-	}
-	putchar('\n');
+char abc;
+
+for (abc = 'a'; abc <= 'z'; abc++)
+{
+putchar(abc);
+}
+for (abc = 'A'; abc <= 'Z'; abc++)
+{
+putchar(abc);
+}
+putchar('\n');
 return (0);
 }
