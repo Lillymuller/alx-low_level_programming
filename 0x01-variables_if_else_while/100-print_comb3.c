@@ -6,19 +6,19 @@
  */
 int main(void)
 {
-int nums;
-int nums1;
-
-for (nums = '0'; nums <= '9'; nums++)
+int ones;
+int tens;
+for (tens = '0'; tens <= '9'; tens++) /*increment tens*/
 {
-for (nums1 = '0'; nums1 <= '9'; nums1++)
+for (ones = (tens + 1); ones <= '9'; ones++) /*one's ten+1*/
 {
-putchar(nums);
-putchar(nums1);
-if (nums == '9' && nums1 == '9')
-continue;
+putchar(tens);
+putchar(ones);
+if (tens != '8' || ones != '9') /*print commas*/
+{
 putchar(',');
 putchar(' ');
+}
 }
 }
 putchar('\n');
