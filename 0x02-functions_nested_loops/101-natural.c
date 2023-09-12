@@ -8,6 +8,7 @@ int main(void)
 	int n;
 	int sum;
 
+	int_vaule(3 ,5);
 	sum = 0;
 
 	for (n = 0; n < 1024; n++)
