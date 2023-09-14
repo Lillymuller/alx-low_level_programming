@@ -9,7 +9,7 @@ int main(void)
 	unsigned long number = 612852475143;
 		unsigned long prime_factor = 2;
 
-		while (prime_factor <= number)
+		while (prime_factor < number)
 		{
 			if (number % prime_factor == 0)
 			{
