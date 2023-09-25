@@ -10,8 +10,8 @@
 void print_diagsums(int *a, int size)
 {
 
-	int dig_sum_1 = 0;
-	int dig_sum_2 = 0;
+	int diagonal_sum_1 = 0;
+	int diagonal_sum_2 = 0;
 	int row, i;
 
 	for (row = 0; row < size; row++)
@@ -20,7 +20,7 @@ void print_diagsums(int *a, int size)
 		diagonal_sum_1 += a[i];
 	}
 
-	for (col = 1; col <= size; col++)
+	for (row = 1; row <= size; row++)
 	{
 		i = (row * size) - row;
 		diagonal_sum_2 += a[i];
