@@ -16,7 +16,7 @@ int _strlen(const char *str)
 }
 /**
  * add_node_end - adds a new node at the end of a list_t list
- * @head: struct list_t, node
+ * @head: struct list_t and node
  * @str: string to be duplicated
  * Return: new list_t
  */
