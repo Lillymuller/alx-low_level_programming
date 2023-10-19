@@ -1,8 +1,8 @@
 #include "lists.h"
 
 /**
- * _strlen - size of string
- * @str: string to get size of
+ * _strlen - Gives of string
+ * @str: string to get size duplicated string
  * Return: size of string
  */
 int _strlen(const char *str)
@@ -23,7 +23,8 @@ int _strlen(const char *str)
 
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node, *last;
+	list_t *new_node;
+	list_t *end;
 	char *string = strdup(str);
 
 	if (string == NULL)
@@ -46,9 +47,9 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (new_node);
 	}
 
-	for (last = *head; last->next != NULL; last = last->next)
+	for (end = *head; end->next != NULL; end = end->next)
 		;
 
-	last->next = new_node;
+	end->next = new_node;
 	return (new_node);
 }
