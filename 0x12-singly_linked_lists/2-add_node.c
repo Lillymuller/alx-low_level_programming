@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * _strlen - find string length
+ * _strlen - gives string length
  * @str: string
  * Return: length
  */
@@ -23,26 +23,22 @@ int _strlen(const char *str)
 
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *new_node; /* creating  new node */
+	list_t *new_node;
+	char *string = strdup(str);
 
-	if (str == NULL) /* validate input */
-		return (NULL);
-	if (strdup(str) == NULL) /*check if the duplicated strg has malloc error */
+	if (string == NULL)
 		return (NULL);
 
-	new_node = malloc(sizeof(list_t)); /* allocating new memory to the new node */
+	new_node = malloc(sizeof(list_t)); /* allocating memory to new_node */
 	if (new_node == NULL)
+	{
+		free(string);
 		return (NULL);
+	}
+	new_node->str = string;
+	new_node->len = _strlen(string);
+	new_node->next = *head;
 
-	new_node->str = strdup(str); /* setting the valus of string to the new node */
-	new_node->len = _strlen(str);
-
-	if (head == NULL) /* inisilazing head to point to frist value*/
-		new_node->next = NULL;
-	else
-		new_node->next = *head;
-
-	*head = new_node; /* set head to point to new node */
-
+	*head = new_node;
 	return (new_node);
 }
