@@ -24,19 +24,19 @@ int _strlen(const char *str)
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new_node;
-	char *string = strdup(str);
+	char *str2 = strdup(str);
 
-	if (string == NULL)
+	if (str2 == NULL)
 		return (NULL);
 
 	new_node = malloc(sizeof(list_t)); /* allocating memory to new_node */
 	if (new_node == NULL)
 	{
-		free(string);
+		free(str2);
 		return (NULL);
 	}
-	new_node->str = string;
-	new_node->len = _strlen(string);
+	new_node->str = str2;
+	new_node->len = _strlen(str2);
 	new_node->next = *head;
 
 	*head = new_node;
