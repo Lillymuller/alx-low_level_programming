@@ -1,7 +1,7 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#include <stdio.h> /* size_t, printf */
+#include <stdio.h> /* size_t and  printf */
 #include <stdlib.h> /* malloc */
 #include <string.h> /* string functions */
 
