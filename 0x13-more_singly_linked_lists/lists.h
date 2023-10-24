@@ -6,12 +6,9 @@
 #include <string.h> 
 
 /**
- * struct listint_s - singly linked list
- * @n: integer
- * @next: points to the next node
- *
- * Description: singly linked list node structure
- *
+ * struct listint_s - self referencial struct
+ * @n: nput
+ * @next: pointer input
  */
 
 typedef struct listint_s
