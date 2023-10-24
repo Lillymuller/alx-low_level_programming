@@ -13,17 +13,15 @@ listint_t *reverse_listint(listint_t **head)
 	if (head == NULL || *head == NULL)
 		return (NULL);
 
-	end = NULL;
-
-	while ((*head)->next != NULL)
+	front = NULL;
+	while (*head != NULL)
 	{
-		front = (*head)->next;
-		(*head)->next = end;
-		end = *head;
-		*head = front;
+		end = (*head)->next; /* keep taps on the  next node */
+		(*head)->next = front;
+		front = *head;
+		*head = end;
 	}
-
-	(*head)->next = end;
+	(*head) = front;
 
 	return (*head);
 }
