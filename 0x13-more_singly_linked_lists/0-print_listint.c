@@ -2,8 +2,9 @@
 
 /**
  * print_listint - Print all elements of a the  list
- * @h: header pointer
- * Return: number of counted nodes
+ * @h: Header pointer
+ *
+ * Return: Number of counted nodes
  */
 
 size_t print_listint(const listint_t *h)
