@@ -1,100 +1,47 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
- * listint_loop - count nodes to know now many unique nodes to print
- * @head: header pointer for the first node
- * Return: returns number of diffrent loop
- */
-
-int listint_loop(const listint_t *head)
-{
-	int n = 0;
-	const listint_t *adu, *abc;
-
-	adu = abc = head;
-
-	while (adu != NULL && abc != NULL)
-	{
-		adu = adu->next;
-		abc = abc->next->next;
-		n += 1;
-
-		if (adu == abc)
-		{
-			adu = head;
-			while (adu != abc)
-			{
-				adu = adu->next;
-				abc = abc->next;
-				n += 1;
-			}
-			return (n);
-		}
-	}
-	return (0);
-}
-
-/**
- * find_loop - find if a loop in linked list
+ * print_listint_safe - function that prints a listint_t linked list
  * @head: header pointer
- * Return: 0 if there is no loop, 1 if there is loop
- */
-
-int find_loop(const listint_t *head)
-{
-	const listint_t *adu, *abc;
-
-	adu = abc = head;
-
-	while (adu != NULL && abc != NULL)
-	{
-		adu = adu->next;
-		abc = abc->next->next;
-
-		if (adu == abc)
-			return (1);
-	}
-	return (0);
-}
-
-/**
- * print_listint_safe - a function that prints a listint_t linked list
- * @head: header pointer
- * Return: number of nodes, exit(98) if failed
+ * Return: the number of nodes in the list
  */
 
 size_t print_listint_safe(const listint_t *head)
 {
-	int n = 0;
-	int get_loop;
-	size_t amount_nodes = 0;
-	const listint_t *pttr;
+	int m, sign = 0;
+	listint_t *end, *frist;
 
-	if (head == NULL)
+	if (!head)
 		exit(98);
-
-	get_loop = find_loop(head);
-
-	if (get_loop == 1) /* print all node before loop if ends */
+	for (m = 1; (*head).next && !frist; head = (*head).next, m++)
 	{
-		n = listint_loop(head);
-		for (get_loop = 0; get_loop < n; get_loop++)
+		if ((*head).next)
+			end = (*head).next;
+		if ((*head).next->next)
+			frist = (*head).next->next;
+		while (end != frist)
 		{
-			printf("[%p] %d\n", (void *)pttr, pttr->n);
-			amount_nodes++;
-			pttr = pttr->next;
+			if (end)
+				end = (*end).next;
+			if (frist == head)
+				sign = 1;
+			if (frist && !sign)
+				frist = (*frist).next;
+			if (frist == head)
+				sign = 1;
+			if (frist && !sign)
+				frist = (*frist).next;
+			if (frist == head)
+				sign = 1;
 		}
-	}
-	else if (get_loop == 0)
-	{
-		pttr = head;
-		while (pttr != NULL)
-		{
-			printf("[%p] %d\n", (void *)pttr, pttr->n);
-			amount_nodes++;
-			pttr = pttr->next;
-		}
+		printf("[%p] %d\n", (void *)head, (*head).n);
 	}
 
-	return (amount_nodes);
+	for (; frist && (*head).next != frist; m++, head = (*head).next)
+		printf("[%p] %d\n", (void *)head, (*head).n);
+	printf("[%p] %d\n", (void *)head, (*head).n);
+	if (frist)
+		printf("-> [%p] %d\n", (void *)frist, (*frist).n);
+	return (m);
 }
