@@ -1,9 +1,8 @@
-#ifndef _LISTS_H_
-#define _LISTS_H_
+#ifndef  LISTS_H
+#define  LISTS_H
 
 #include <stdio.h> 
 #include <stdlib.h>
-#include <string.h> 
 
 /**
  * struct listint_s - self referencial struct
@@ -18,6 +17,7 @@ typedef struct listint_s
 } listint_t;
 
 /* function prototypes */
+
 int _putchar(char c);
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
