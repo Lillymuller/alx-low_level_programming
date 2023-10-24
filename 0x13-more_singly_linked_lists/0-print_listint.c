@@ -3,7 +3,6 @@
 /**
  * print_listint - Print all elements of a the  list
  * @h: Header pointer
- *
  * Return: Number of counted nodes
  */
 
