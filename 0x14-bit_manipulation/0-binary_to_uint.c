@@ -15,11 +15,11 @@ unsigned int binary_to_uint(const char *b)
 	if (b == NULL) /* if the char is not 1 0r 0 b is null */
 		return (add);
 
-	while (b[str_length] != '\0')
-		str_length += 1;
+	for (str_length = 0 ; b[str_length] != '\0'; str_length++)
+		;
 	str_length--;
 
-	/* get power of 2 via binary (e.g. 1<<2 = 100 in binary = 4) */
+	/* power of 2 via binary (e.g. 1<<2 = 100 in binary = 4) */
 	n = 0;
 	while (b[n])
 	{
