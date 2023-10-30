@@ -9,7 +9,7 @@
 int create_file(const char *filename, char *text_content)
 {
 	int new_file, str_length = 0;
-	int data_write;
+	int data_write = 0;
 
 	while (filename == NULL)
 		return (-1);
@@ -27,13 +27,18 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	/* Write in a file */
-	data_write = write(new_file, text_content, text_content[str_length]);
-	if (data_write == -1 || data_write != text_content[str_length])
-			{
+	if (text_content)
+	{
+		for (str_length = 0; text_content[str_length]; str_length++)
+			;
+
+
+	data_write = write(new_file, text_content, str_length);
 		close(new_file);
+
+		if (data_write != str_length)
 		return (-1);
 	}
 
-	close(new_file);
 	return (1);
 	}
