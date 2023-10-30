@@ -9,8 +9,8 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	ssize_t data_read, data_wrote;
+	int fd; /* stands for file descriptor */
+	ssize_t data_read, data_write;
 	char *buf = malloc(sizeof(char) * letters);
 
 	if (filename == NULL)
@@ -34,8 +34,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	/* Write data in open file */
-	data_wrote = write(STDOUT_FILENO, buf, data_read);
-	if (data_wrote == -1)
+	data_write = write(STDOUT_FILENO, buf, data_read);
+	if (data_write == -1)
 	{
 		free(buf);
 		close(fd);
