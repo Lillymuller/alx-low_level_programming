@@ -21,15 +21,17 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	new_list->next = NULL;
 
 	/* chech if head is empty or not*/
-	if (*head != NULL)
+	if (*head == NULL)
 	{
-		new_list->next = *head;
+		new_list->prev = NULL;
 		*head = new_list;
+		return (new_list);
 	}
 	else
 	{
 	/* now lest travers our list*/
 	/* if trav isat the end of node it will exit the loop*/
+		trav = *head;
 	while (trav->next != NULL)
 		trav = trav->next;
 	trav->next = new_list;
