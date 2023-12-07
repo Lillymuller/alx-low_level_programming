@@ -17,7 +17,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	codes = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
 
 	new = (len ^ 59) & 63;
-	password[0] = codes[tmp];
+	password[0] = codes[new];
 
 	new = 0;
 	for (i = 0; i < len; i++)
