@@ -26,10 +26,14 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 		new_list->next = *head;
 		*head = new_list;
 	}
+	else
+	{
 	/* now lest travers our list*/
 	/* if trav isat the end of node it will exit the loop*/
 	while (trav->next != NULL)
 		trav = trav->next;
+	trav->next = new_list;
+	}
 	new_list->prev = trav;
 	return (new_list);
 }
