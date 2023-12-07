@@ -3,29 +3,36 @@
 #include <string.h>
 
 /**
- * main - Generates and prints passwords for the crackme5 executable.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
+ * main - Generates and prints passwords for the crackme5 executable
  *
  * Return: Always 0.
  */
-int main(int argc, char *argv[])
+int main(void)
 {
-if (argc != 2)
+char a[10], c[10], d;
+int i, j, k = 0;
+printf("#Keygen by b44nz0r\n\n");
+
+while (k < 5 || k >= 10)
 {
-printf("Usage: ./keygen5 username\n");
-return (1);
+if (k != 0)
+printf("\nThe username length should be 5 to 10 alphabets\n");
+printf("enter username: ");
+scanf("%s", a);
+k = strlen(a);
 }
+i = k - 1;
+j = 0;
 
-char *username = argv[1];
-int key = 0;
-int i = 0;
-for (i = 0; i < strlen(username); i++)
+while (i >= 0)
 {
-key += username[i];
+c[j] = a[i] + i;
+i--;
+j++;
 }
-
-printf("Key: %d\n", key);
-
-return (0);
+c[j] = 0;
+printf("\nThe password is %s\n", c);
+printf("\nHit Enter to Exit\n");
+getchar();
+getchar();
 }
