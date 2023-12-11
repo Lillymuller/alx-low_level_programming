@@ -1,21 +1,22 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _strcmp - compare two strings
- * @s1: one string
- * @s2: one string
- * Return: int shows num spaces in between
+ * _strcmp - compares two strings
+ * @s1: first string
+ * @s2: second string
+ * Return: size difference of strings
  */
 
 int _strcmp(char *s1, char *s2)
 {
-	int i = 0;
+	int count = 0;
 
-	while (*(s1 + i) == *(s2 + i) && *(s1 + i))
-		i++;
-
-	if (*(s2 + i))
-		return (*(s1 + i) - *(s2 + i));
-	else
-		return (0);
+	while (*(s1 + count) != '\0' || *(s2 + count) != '\0')
+	{
+		if (*(s1 + count) != *(s2 + count))
+			return (*(s1 + count) - *(s2 + count));
+		count++;
+	}
+	return (0);
 }
