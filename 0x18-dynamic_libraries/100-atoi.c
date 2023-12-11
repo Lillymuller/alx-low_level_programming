@@ -46,7 +46,7 @@ int find_sign(char *s)
 {
 	int negatives = 0, i = 0, sign = 1;
 
-	while (i < (idx_num_starts(s)))
+	while (i < (first_idx_starts(s)))
 	{
 		if (s[i++] == '-')
 			negatives++;
