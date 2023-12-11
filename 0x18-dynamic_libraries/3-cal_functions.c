@@ -1,4 +1,6 @@
-/**
+#include "main.h"
+
+/**  
  * add - add
  * @a: integer
  * @b: integer
