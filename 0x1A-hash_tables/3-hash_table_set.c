@@ -34,14 +34,14 @@ int create_and_add_node(hash_table_t *ht, const char *key, const char *value,
 		return (0);
 	}
 
-	node->key = a;
-	node->value = c;
+	newnode->key = a;
+	newnode->value = c;
 
 	if ((ht->array)[indx] == NULL)
 		newnode->next = NULL;
 	else
 		newnode->next = (ht->array)[indx];
-	(ht->array)[indx] = node;
+	(ht->array)[indx] = newnode;
 
 	return (1);
 }
@@ -78,5 +78,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 
-	return (create_and_add_node(ht, key, value, idx));
+	return (create_and_add_node(ht, key, value, indx));
 }
