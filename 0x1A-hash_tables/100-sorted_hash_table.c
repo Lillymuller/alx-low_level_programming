@@ -219,7 +219,7 @@ void shash_table_print(const shash_table_t *ht)
 }
 
 /**
- * shash_table_print_rev - print key/values of sorted hashtable in reverse order
+ * shash_table_print_rev - print key/values of sorted ht in reverse order
  * @ht: hash table
  */
 void shash_table_print_rev(const shash_table_t *ht)
