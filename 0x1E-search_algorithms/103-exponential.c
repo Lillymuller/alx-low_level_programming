@@ -19,12 +19,14 @@ if (array == NULL)
 return (-1);
 }
 
-while (left <= right)
+while (right >= left)
 {
 
 printf("Searching in array: ");
 for (mid = left; mid < right; mid++)
+{
 printf("%d, ", array[mid]);
+}
 printf("%d\n", array[mid]);
 
 /*Calculate middle index*/
@@ -59,7 +61,7 @@ return (-1);
 
 int exponential_search(int *array, size_t size, int value)
 {
-size_t i, r;
+size_t i = 0, r;
 
 if (array == NULL)
 {
@@ -67,22 +69,26 @@ return (-1);
 }
 
 /*Handle edge case where value is the first element*/
-if (array[0] == value)
-return (0);
-
-i = 1;  /*Start with power of 2 for exponential search*/
-
-while (i < size && array[i] <= value)
+if (array[0] != value)
 {
-i *= 2;  /* Double the search range in each iteration */
+for (i = 1; i < size && array[i] <= value; i *= 2)
+{
+/* Double the search range in each iteration */
 
-printf("Value checked array[%ld] = [%d]\n", i - 1, array[i - 1]);
+printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+}
 }
 
 /*Reduce search range to a sub-array based on the last checked index*/
-r = i < size ? i - 1 : size - 1;
-
-printf("Value found between indexes [%ld] and [%ld]\n", r / 2, r);
-return (_binary_search(array, r / 2, r, value));
+if (i < size)
+{
+r = i;
+}
+else
+{
+r = size - 1;
+}
+printf("Value found between indexes [%ld] and [%ld]\n", i / 2, r);
+return (_binary_search(array, i / 2, r, value));
 /*Call binary search on the narrowed range*/
 }
