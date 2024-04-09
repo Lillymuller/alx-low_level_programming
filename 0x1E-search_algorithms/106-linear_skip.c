@@ -25,9 +25,11 @@ step = step->express;
 printf("Value checked at index [%ld] = [%d]\n",
 		step->index, step->n);
 }
-
+else
+{
 while (step->next != NULL)
 step = step->next;
+}
 }
 
 printf("Value found between indexes [%ld] and [%ld]\n",
