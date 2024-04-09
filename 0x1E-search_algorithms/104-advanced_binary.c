@@ -13,26 +13,19 @@
 
 int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
 {
-size_t mid = left + (right - left) / 2;
+size_t mid;
 
-if (right < left)
+if (left > right)
 return (-1); /*Base case: search range empty*/
 
 printf("Searching in array: ");
-
-mid = left;
-while (mid <= right)
+for (mid = left; right > mid; mid++)
 {
-printf("%d", array[mid]);
-if (mid < right)
-{
-/*Add comma for clarity, avoiding trailing comma*/
-printf(", ");
+printf("%d, ", array[mid]);
 }
-mid++;
-}
-printf("\n");
+printf("%d\n", array[mid]);
 
+mid = left + (right - left) / 2;
 /*Check if value found and avoid duplicates to the left (first occurrence)*/
 if (array[mid] == value && (mid == left || array[mid - 1] != value))
 return (mid);
@@ -60,30 +53,10 @@ return (advanced_binary_recursive(array, mid + 1, right, value));
 
 int advanced_binary(int *array, size_t size, int value)
 {
-size_t left = 0, right = size - 1;
-size_t mid;
-
 if (array == NULL || size == 0)
 return (-1);
 
-while (left <= right)
-{
-mid = left + (right - left) / 2;
+return (advanced_binary_recursive(array, 0, size - 1, value));
 
-if (array[mid] == value && (mid == left || array[mid - 1] != value))
-{
-return (mid);
-}
-else if (array[mid] >= value)
-{
-right = mid;
-}
-else
-{
-left = mid + 1;
-}
-}
-
-return (-1); /*Not found*/
 }
 
