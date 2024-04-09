@@ -17,12 +17,11 @@ listint_t *node, *step;
 
 if (list == NULL || size == 0)
 {
-return NULL;
+return (NULL);
 }
 
 /*Iterative jump phase*/
-node = step = list;
-while (step->index + 1 < size && step->n < value)
+for (node = step = list; step->index + 1 < size && step->n < value;)
 {
 node = step;
 /*Jump ahead in a loop*/
@@ -36,12 +35,11 @@ printf("Value checked at index [%ld] = [%d]\n", step->index, step->n);
 printf("Value found between indexes [%ld] and [%ld]\n",
 		node->index, step->index);
 
-while (node->index < step->index && node->n < value)
+for (; node->index < step->index && node->n < value; node = node->next)
 {
-node = node->next;
 printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
 }
-printf("Value checked at index [%ld] = [%d]\n",node->index, node->n);
+printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
 
 /* Recursive linear search within the narrowed range */
 if (node->n == value)
