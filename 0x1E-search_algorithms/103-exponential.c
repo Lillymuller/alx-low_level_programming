@@ -21,6 +21,12 @@ return (-1);
 
 while (left <= right)
 {
+
+printf("Searching in array: ");
+for (mid = left; mid < right; mid++)
+printf("%d, ", array[mid]);
+printf("%d\n", array[mid]);
+
 /*Calculate middle index*/
 mid = left + (right - left) / 2;
 
